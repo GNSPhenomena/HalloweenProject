@@ -1,13 +1,16 @@
 const int trigPin = 9;
 const int echoPin = 10;
+
 int redPin = 3;
 int greenPin = 5;
 int bluePin = 6;
+
 int speakerPin = 8;
 
 void setup()
 { 
   Serial.begin(9600);
+  
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   
@@ -21,13 +24,14 @@ void showRGB(int color)
   int redIntensity;
   int greenIntensity;
   int blueIntensity;
+  
   if(color = 0)
   {
     redIntensity = 0;    
     greenIntensity = 0;        
     blueIntensity = 0; 
   }
-  else if (color <= 255)          // zone 1
+  else if (color <= 255)
   {
     redIntensity = 255 - color;   
     greenIntensity = color;      
@@ -47,9 +51,9 @@ void showRGB(int color)
   }
   else
   {
-    redIntensity = 255;         // red off to on
-    greenIntensity = 255;                   // green is always off
-    blueIntensity = 255;  // blue on to off
+    redIntensity = 255;
+    greenIntensity = 255;
+    blueIntensity = 255;
   }
   analogWrite(redPin, redIntensity);
   analogWrite(bluePin, blueIntensity);
