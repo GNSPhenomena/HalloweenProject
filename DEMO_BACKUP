@@ -25,7 +25,7 @@ void showRGB(int color)
   int greenIntensity;
   int blueIntensity;
   
-  if(color = 0)
+  if(color == 0)
   {
     redIntensity = 0;    
     greenIntensity = 0;        
@@ -73,20 +73,22 @@ void loop() {
   Serial.print("Distance: ");
   Serial.println(distance);
   //conditions
-  tone(speakerPin,distance*35);
   if(distance < 50) 
   {
     showRGB(800);
     delay(10);
+    //tone(speakerPin,distance*35);
   }
-  else if(distance > 140)
+  else if(distance > 120)
   {
     showRGB(0);
     delay(10);
+    //tone(speakerPin,-1);
   }
   else
   {
-    showRGB(distance*7);
+    showRGB((distance-50)*12);
     delay(10);
+    //tone(speakerPin,distance*35);
   }
 }
